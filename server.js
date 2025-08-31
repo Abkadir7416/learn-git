@@ -1,6 +1,7 @@
 import express  from "express";
 import dotenv from 'dotenv';
 import {connectDB} from './DB/db.config.js';
+import userRoutes from './routes/user.js'
 
 
 // Load environment variables
@@ -16,6 +17,9 @@ connectDB();
 app.get("/", (req, res) => {
   res.send("Hello from Node.js Server 🚀");
 });
+
+// Routes
+app.use('/', userRoutes);
 
 // Start server
 app.listen(PORT, () => {
