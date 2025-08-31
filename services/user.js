@@ -20,3 +20,13 @@ export const getAllUsersService = async () => {
     }
 }
 
+
+export const userDetailsService = async (id) => {
+    try {
+        const userDetails = await user.findById(id);
+        return userDetails;
+    } catch (error) {
+        console.log(error)
+        return error;
+    }
+}
