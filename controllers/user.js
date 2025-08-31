@@ -1,4 +1,4 @@
-import { saveUserService, getAllUsersService, userDetailsService } from "../services/user.js";
+import { saveUserService, getAllUsersService, userDetailsService, userUpdateService } from "../services/user.js";
 
 export const saveUser = async (req, res) => {
     try {
@@ -41,4 +41,19 @@ export const userDetails = async (req, res) => {
         return error;
     }
 
+}
+
+export const updateUser = async (req, res) => {
+    try {
+        const data = req.body;
+        const { id } = req.params
+        const getUserDetails = await userUpdateService(id, data);
+        res.status(201).json({
+            success: true,
+            data: getUserDetails
+        });
+    } catch (error) {
+        console.log(error);
+        return error;
+    }
 }

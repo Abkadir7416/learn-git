@@ -30,3 +30,14 @@ export const userDetailsService = async (id) => {
         return error;
     }
 }
+
+
+export const userUpdateService = async (id, data) => {
+    try {
+        const updatedData = await user.findByIdAndUpdate(id, data, { new: true });
+        return updatedData;
+    } catch (error) {
+        console.log(error)
+        return error;
+    }
+}
