@@ -41,3 +41,14 @@ export const userUpdateService = async (id, data) => {
         return error;
     }
 }
+
+
+export const deleteUserService = async (id) => {
+    try {
+        const deletedUser = await user.findByIdAndDelete(id);
+        return deletedUser;
+    } catch (error) {
+        console.log(error)
+        return error;
+    }
+}

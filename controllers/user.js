@@ -1,4 +1,4 @@
-import { saveUserService, getAllUsersService, userDetailsService, userUpdateService } from "../services/user.js";
+import { saveUserService, getAllUsersService, userDetailsService, userUpdateService, deleteUserService } from "../services/user.js";
 
 export const saveUser = async (req, res) => {
     try {
@@ -51,6 +51,20 @@ export const updateUser = async (req, res) => {
         res.status(201).json({
             success: true,
             data: getUserDetails
+        });
+    } catch (error) {
+        console.log(error);
+        return error;
+    }
+}
+
+export const deleteUser = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const deleteUser = await deleteUserService(id);
+        res.status(201).json({
+            success: true,
+            data: deleteUser
         });
     } catch (error) {
         console.log(error);
