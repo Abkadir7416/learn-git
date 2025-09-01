@@ -20,7 +20,11 @@ export const getAllBlogsService = async() => {
 }
 
 export const blogDetailsService = async(id) => {
-    return {
-        message: `blog with ${id} not found!!`
-    };
+    try {
+        const blogDetails = await blog.findById(id);
+        return blogDetails;
+    } catch (error) {
+        console.log(error)
+        return error;
+    }
 }
