@@ -2,6 +2,7 @@ import express  from "express";
 import dotenv from 'dotenv';
 import {connectDB} from './DB/db.config.js';
 import userRoutes from './routes/user.js'
+import blogRoutes from './routes/blog.js'
 
 
 // Load environment variables
@@ -23,6 +24,7 @@ app.get("/", (req, res) => {
 
 // Routes
 app.use('/', userRoutes);
+app.use('/', blogRoutes);
 
 // Start server
 app.listen(PORT, () => {
