@@ -18,3 +18,9 @@ export const getAllBlogsService = async() => {
         return error;
     }
 }
+
+export const blogDetailsService = async(id) => {
+    return {
+        message: `blog with ${id} not found!!`
+    };
+}
