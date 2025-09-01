@@ -8,3 +8,13 @@ export const saveBlogService = async (data) => {
         return error;
     }
 }
+
+export const getAllBlogsService = async() => {
+    try {
+        const blogs = await blog.find();
+        return blogs;
+    } catch (error) {
+        console.log(error)
+        return error;
+    }
+}

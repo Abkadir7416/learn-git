@@ -1,4 +1,4 @@
-import { saveBlogService } from "../services/blog.js";
+import { saveBlogService, getAllBlogsService } from "../services/blog.js";
 
 export const saveBlog = async (req, res) => {
     try {
@@ -15,7 +15,16 @@ export const saveBlog = async (req, res) => {
 }
 
 export const getAllBlogs = async (req, res) => {
-
+    try {
+        const getAllBlogs = await getAllBlogsService();
+        res.status(201).json({
+            success: true,
+            data: getAllBlogs
+        });
+    } catch (error) {
+        console.log(error);
+        return error;
+    }
 }
 
 export const updateBlog = async (req, res) => {
