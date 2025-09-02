@@ -9,7 +9,7 @@ export const saveBlogService = async (data) => {
     }
 }
 
-export const getAllBlogsService = async() => {
+export const getAllBlogsService = async () => {
     try {
         const blogs = await blog.find();
         return blogs;
@@ -19,10 +19,20 @@ export const getAllBlogsService = async() => {
     }
 }
 
-export const blogDetailsService = async(id) => {
+export const blogDetailsService = async (id) => {
     try {
         const blogDetails = await blog.findById(id);
         return blogDetails;
+    } catch (error) {
+        console.log(error)
+        return error;
+    }
+}
+
+export const blogUpdateService = async (id, data) => {
+    try {
+        const updatedBlog = await blog.findByIdAndUpdate(id, data, { new: true });
+        return updatedBlog;
     } catch (error) {
         console.log(error)
         return error;

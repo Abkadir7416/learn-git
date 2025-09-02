@@ -1,4 +1,4 @@
-import { saveBlogService, getAllBlogsService, blogDetailsService,  } from "../services/blog.js";
+import { saveBlogService, getAllBlogsService, blogDetailsService, blogUpdateService } from "../services/blog.js";
 
 export const saveBlog = async (req, res) => {
     try {
